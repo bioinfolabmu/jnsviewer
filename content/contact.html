@@ -1,0 +1,26 @@
+<div class="container">
+	<h1>Contact</h1><br>
+	<p>If you have any questions or comments, please contact Dr. Chun Liang (<a href="#" onclick="send();">liangc@miamioh.edu</a>).</p>
+	<p>Thank you for using JNSViewer!</p>
+	<form id="contact" action="">
+		<div class="col-md-6">
+			<label for="subject">Subject: </label><input id="subject" class="form-control" type="text" required="required">
+			<label for="msg">Message: </label><textarea id="msg" class="form-control" rows="10" required="required"></textarea><br>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</form>
+</div>
+
+<script>
+	$('#contact').on('submit', function send() {
+		var msg = $('#msg').val();
+		var subject = $('#subject').val();
+		var address = 'shij@miamioh.edu';
+		var link = 'mailto:' + address + '?subject=' + subject + '&body=' + msg;
+		window.location.href = link;
+		return false;
+	});
+</script>
+
+
+

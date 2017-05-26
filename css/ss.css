@@ -1,0 +1,73 @@
+.panel-heading:hover {
+	background-color: #609dd2;
+	cursor: pointer;
+}
+.well {
+	background-color: white;
+}
+.toolbox {
+	float: right;
+	height: 60px;
+	margin-top: 20px;
+	margin-right: 50px;
+}
+.toolBoxElement {
+	width: 40px;	
+	height: 40px;
+}
+.toolBoxElement:hover {
+	cursor:pointer
+}
+.search-box {
+	max-width: 400px;
+	display: inline-block;
+}
+.color-key {
+	float: left;
+	display: inline-block;
+	max-width: 100%;
+	padding:5px;
+	background: #E4E5F5;
+	border: solid 1px #9194BF;
+	border-radius: 5px;
+}
+.alert {
+	padding: 5px;
+}
+.colorBlock{
+	height:10px;
+	width:20px;
+	border: solid 1px #9194BF;
+	display:inline-block;
+	margin-right:5px;
+	margin-left:10px;
+}
+.keyText{
+	display:inline-block;
+}
+.right {
+	float: right;
+}
+.div-svg {
+	overflow: auto;
+}
+.div-fixed {
+	height: 600px;
+}
+.clear {
+	clear: both;
+}
+#svgSS circle, #svgSS text {
+	cursor: pointer;
+}
+#gffSequence {
+	 white-space: pre;
+}
+@media screen and (max-width: 480px) {
+	.search-box {
+		width: 225px;
+	}
+	#show-substr {
+		font-size: 12px;
+	}
+}

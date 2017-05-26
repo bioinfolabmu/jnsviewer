@@ -1,0 +1,100 @@
+<!-- Style -->
+<link rel="stylesheet" type="text/css" href="css/ss.css">
+<!-- show graph -->
+<script type="text/javascript" src="js/ss-client.js"></script>
+<!-- For Add Rulers. -->
+<script type="text/javascript" src="js/ss-rulers.js"></script>
+<!-- For Searching. -->
+<script type="text/javascript" src="js/ss-search.js"></script>
+
+<div class="container" ng-controller="ssCtrl">
+	<div class="well">
+		<!-- Begin, Ruler Toggle-->
+		<div id="rulersToggle" class="checkbox-inline">
+			<label><input type="checkbox" name="showRulers" id="showRulers" ng-click="toggle_ruler($event)">Rulers</label>
+		</div>&nbsp;&nbsp;&nbsp;&nbsp;
+		<span id="colorToggle">
+			<label for="colorMode">Color Mode </label>
+			<select id="colorMode" ng-model="selectedColorMode" ng-options="x.name for x in colorModes" ng-change="colorModeSwitch()"></select>
+		</span>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading" data-toggle="collapse" data-target="#nt-info">Nucleotide Information</div>
+		<div id="nt-info" class="panel-body">			
+			<!-- Begin, Motif Search-->
+			<p id="motif_search">
+				<p>
+					<label for="query">Motif Search: </label>
+					<input id="query" name="query" type="text" class="form-control search-box" placeholder="Search with regular expression (at least 3 characters)">
+					<input type="button" class="btn btn-success" value="Submit" ng-click="motifSearch()">&nbsp;
+					<input type="button" class="btn btn-default" value="Reset" ng-click="resetMotifSearch()">
+				</p>
+				<p id="motif_results">
+					<div id="motif_text_results" class="alert alert-success display-inline-block">No resutls found</div>
+					<input type="button" id="nextResult" class="btn btn-default" value="Next" ng-click="nextSearchResult()" disabled="true">
+					<input type="button" id="previousResult" class="btn btn-default" value="Previous" ng-click="previousSearchResult()" disabled="true">	
+				</p>
+			</p>
+			<!-- End, Motif Search-->		
+			<!-- Begin. Textarea of Sequence. -->
+			<textarea id="sequence" class="form-control" rows="5" readonly="readonly" ng-mouseup="textClick($event)">{{sequence}}</textarea><br>
+			<div id="base_selected" class="alert alert-success">Base selected: <span id="selected_start">{{selected.start}}</span> to <span id="selected_end">{{selected.end}}</span></div>
+			<div ng-show="show_sub" class="alert alert-success">Structure of selected bases are shown. Please scroll down to view it.</div>
+			<input id="show-substr" type="button" class="btn btn-info" value="Show secondary structure of selected bases" ng-click="showSelectedStruct()">&nbsp;
+			<input type="button" class="btn btn-default" value="Reset" ng-click="resetSelect()">
+		</div>
+	</div>	
+	<!-- GFF info -->
+	<div ng-show="show_gff" class="panel panel-primary">
+		<div class="panel-heading" data-toggle="collapse" data-target="#gff-info">GFF Information</div>
+		<div id="gff-info" class="panel-body">
+			<textarea id="gffSequence" class="form-control" rows="5" readonly="readonly">{{gff}}</textarea>
+		</div>
+	</div>		
+	<!-- Begin. Graph of Dot Brackets -->
+	<div class="panel panel-primary">
+		<div class="panel-heading" data-toggle="collapse" data-target="#dbn">Dot Bracket</div>
+		<div id="dbn" class="panel-body">
+			<div id='div_svgDB' class="div-svg">
+				<!--<textarea class="form-control" rows="5" readonly="readonly" onmouseup="textClick(this)">{{ssdj}}</textarea>-->
+				<svg id="svgDB" xmlns="http://www.w3.org/2000/svg" lin="http://www.w3.org/1999/xlink" xmlns:html="http://www.w3.org/1999/xhtml"></svg>
+			</div>
+		</div>
+	</div>
+	<!-- End. Graph of Dot Brackets -->
+	<!-- Begin. Graph of Secondary Structure -->
+	<div class="panel panel-primary">
+		<div class="panel-heading" data-toggle="collapse" data-target="#graph">Structure Graph</div>
+		<div id="graph" class="panel-body">		
+			<div id="div_svgSS" class="well">
+				<div id="gffColorKey" class="color-key"></div>
+				<div class="toolbox">
+					<img src="ico/plus.png" class="toolBoxElement" onclick="zoomin('svgSS');">
+					<img src="ico/minus.png" class="toolBoxElement" onclick="zoomout('svgSS');">
+				</div>
+				<div class="div-svg div-fixed clear">
+					<svg id="svgSS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:html="http://www.w3.org/1999/xhtml"></svg>
+				</div>		
+			</div>
+			<div class="alert alert-success">You can select consecutive bases by holding 'shift', and then clicking on the bases shown in the graph.</div>			
+			<input id="show-substr" type="button" class="btn btn-info" value="Show secondary structure of selected bases" ng-click="showSelectedStruct()">&nbsp;
+			<input type="button" class="btn btn-default" value="Reset" ng-click="resetSelect()"><br><br>
+		</div>
+	</div>
+	<!-- End. Graph of Secondary Structure -->
+	<div class="panel panel-primary" ng-show="show_sub">
+		<div class="panel-heading" data-toggle="collapse" data-target="#sub-graph">Sub Structure Graph</div>
+		<div id="sub-graph" class="panel-body">
+			<div id="div_svgSS_sub" class="well">
+				<div id="gffColorKey2" class="color-key"></div>
+				<div class="toolbox">
+					<img src="ico/plus.png" class="toolBoxElement" onclick="zoomin('svgSS_sub');">
+					<img src="ico/minus.png" class="toolBoxElement" onclick="zoomout('svgSS_sub');">
+				</div>
+				<div class="div-svg div-fixed clear">
+					<svg id="svgSS_sub" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:html="http://www.w3.org/1999/xhtml"></svg>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

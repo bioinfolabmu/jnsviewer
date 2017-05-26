@@ -1,0 +1,22 @@
+<div class="container" ng-controller="retriveCtrl">
+	<br>
+	<div class="panel panel-danger" ng-show="error1">
+		<div class="panel-heading">Warning</div>
+		<div class="panel-body"><b>Unable to Recover. Please make sure your ID and Access Code are correct.</b></div>
+	</div>
+	<div class="panel panel-danger" ng-show="error2">
+		<div class="panel-heading">Warning</div>
+		<div class="panel-body"><b>Unable to Recover. The project is still running.</b></div>
+	</div>
+	<h1>Retrieve Project</h1><br>
+	<div class="row">
+		<div class="col-md-6">
+			<form ng-submit="mySubmit()">
+				<label for="id">User ID </label><input ng-model="id" id="user" class="form-control" name="user" value="" required="required">
+				<label for="accessCode">Access Code </label><input ng-model="code" id="accessCode" class="form-control" name="accessCode" type="text" required="required"><br><br>
+				<input class="btn btn-default" name="Reset" type="reset" value="Reset"/>&nbsp;
+				<input id="submit" class="btn btn-primary" name="submit" type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+</div>

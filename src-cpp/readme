@@ -1,0 +1,8 @@
+# install gd library
+sudo apt-get install libgd-dev
+
+# compile code
+g++ cttodbn.cpp -o ../exe/cttodbn
+g++ dbtoss.cpp -o ../exe/dbtoss
+g++ ssdjtosvg.cpp -o ../exe/ssdjtosvg
+g++ ssdjtopng.cpp -o ../exe/ssdjtopng -I /usr/local/include -L /usr/local/lib -lgd

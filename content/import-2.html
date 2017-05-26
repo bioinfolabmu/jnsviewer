@@ -1,0 +1,39 @@
+<div class="container" ng-controller="importCtrl">
+	<div ng-show="waiting">
+		<div class="alert alert-info"><strong>Program is running</strong> <img src="ico/loading_0.gif"></img></div>
+		<div class="panel panel-danger">
+			<div class="panel-heading"><strong>If you want to retrieve your project data later, save the user id and access code, and click the 'Retrieve' tab in the navigation bar.</strong></div>
+			<div class="panel-body">
+				<p><strong>User ID: </strong>{{id}}</p>
+				<p><strong>Access Code: </strong>{{code}}</p>
+			</div>
+		</div>
+	</div>
+	<div ng-show="show_error" class="alert alert-danger">{{error}}</div>
+	<form id="formInput" ng-show="show_form" ng-submit="mySubmit()">
+		<div class="hidden">
+			<input type="radio" name="processing" value="0">
+			<input type="radio" name="processing" value="1" checked>
+			<input type="radio" name="processing" value="2">
+		</div>        
+		<div class="panel panel-info">
+			<div class="panel-heading">Upload structure file:</div>
+			<div class="panel-body">
+				<div>Please upload a sequence in <a href="examples/test.ssdj" download>SSDJ,</a> <a href="examples/test.dbn" download> DBN,</a> or <a href="examples/test.ct" download> CT </a> format:</div>
+				<textarea class="form-control" name="f_c" id="sequence" rows="4" readonly></textarea>
+				<label for="file"></label>
+				<input id="file" name="file" type="file">
+			</div>
+		</div>	
+		<div id="gff_choice" class="panel panel-warning">
+			<div class="panel-heading">Optional GFF Information:</div>
+			<div class="panel-body">
+				<textarea class="form-control" id="gff_sequence" name="gff_f_c" rows="4"></textarea><br>
+				<label for="gffFile">Or upload a file in GFF format (<a href="examples/test.gff" download>sample GFF file</a>):</label><br>
+				<input id="gffFile" name="gffFile" type="file"/>
+			</div>
+		</div>
+		<input class="btn btn-default" name="Reset" type="reset" value="Reset">&nbsp;
+		<input class="btn btn-primary" id="submit" name="submit" type="submit" value="Submit">
+	</form>
+</div>

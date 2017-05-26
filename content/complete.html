@@ -1,0 +1,21 @@
+<div class="container" ng-controller="completeCtrl">
+	<div class="alert alert-success"><strong>Your data has been processed successfully.</strong></div>
+	<div ng-show="show_gffError" class="alert alert-warning"><strong>Error in upload GFF file: {{gffError}}</strong></div>
+	<div ng-show="warn_gff" class="alert alert-warning"><strong>Warning: GFF Functions are disabled. If you wish to use them, please import with a valid GFF File.</strong></div>	
+	<div class="list-group">
+		<a href="#/ss" class="list-group-item"><b>Highly interactive secondary structure viewer</b></a>
+		<a href="#/file/ssdj" class="list-group-item"><b>Processed data in SSDJ format</b></a>
+		<a ng-show="{{fasta}}" href="#/file/fasta" class="list-group-item"><b>Your original input sequence in FASTA format</b></a>
+		<a ng-show="{{dbn}}" href="#/file/dbn" class="list-group-item"><b>Predicted secondary structure in dot-bracket notation</b></a>
+		<a ng-show="{{ct}}" href="#/file/ct" class="list-group-item"><b>Your original input in CT format</b></a>
+		<a href="#/img" class="list-group-item"><b>Predicted secondary structure in SVG/PNG format</b></a>
+	</div>
+	<div class="panel panel-danger">
+		<div class="panel-heading"><strong>If you want to retrieve your project data later, save the user id and access code, and click the 'Retrieve' tab in the navigation bar.</strong></div>
+		<div class="panel-body">
+			<p><strong>User ID: </strong>{{id}}</p>
+			<p><strong>Access Code: </strong>{{code}}</p>
+		</div>
+	</div>
+	<a class="btn btn-primary" href="{{download}}" download>Download whole data</a>&nbsp;
+</div>

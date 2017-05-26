@@ -1,0 +1,89 @@
+<div class="container" ng-controller="scrollCtrl">
+<h1>User Manual</h1><br>	
+<ul>
+	<li>
+		<a ng-click="gotoId('introduction')">Introduction</a>
+	</li>
+	<li>
+		<a ng-click="gotoId('instructions')">Instructions</a>
+		<ol>
+			<li><a ng-click="gotoId('import_data')">Import data</a></li>
+			<li><a ng-click="gotoId('sviewer')">Structure viewer</a></li>
+			<li><a ng-click="gotoId('result_links')">Other result links</a></li>
+			<li><a ng-click="gotoId('retrive')">Retrieve project</a></li>
+		</ol>
+	</li>	
+</ul><br>
+
+<h2 id="introduction">Introduction</h2>
+<p>
+	JNSViewer is an online tool for visualization of the RNA or DNA Secondary Structure from a DBN or CT format file, or a nucleotide sequence. The purpose of this manual is to provide an extensive instruction of how to use JNSViewer and its features.
+</p><br>
+
+<h2 id="instructions">Instructions</h2>
+
+<h3 id="import_data">1. Import data</h3>
+<ul>
+	<li>
+		<h4>Upload the predicted structure file and use our server to visualize the structure</h4>
+		<ol>
+			<li>
+				<div>Go to other websites to get the predicted secondary structure file and upload it to our server. The supported formats are SSDJ, DBN and CT. The maximum file size allowed is 1 MB.</div>
+			</li><br>
+			<li>[optional] GFF information.</li><br>
+			<li>Click the "Submit" button.</li><br>
+		</ol>
+	</li>	
+	<li>
+		<div>Once your sequence has been processed, you will receive the following page. Please remember to save the web link and access code if you need to recover your project for later.</div>
+		<img src="images/user_manual/running.png" alt="running" class="manual_img">
+	</li>
+</ul>
+
+<h3 id="sviewer">2. Structure viewer</h3>
+<ul>
+	<li>
+		<div>Once data has been processed, click "Highly interactive secondary structure viewer" in the new page.</div>
+		<img src="images/user_manual/complete.png" alt="complete" class="manual_img">
+	</li><br>
+	<li>
+		<div>A new window will open with the sequence, GFF annotation, DBN structure, and image of your sequence. You can use "Rulers" to show the sequence in a formatted way. You can also change the color mode to either "GFF" or "Nucleotide".</div>
+		<img src="images/user_manual/sviewer.png" alt="sviewer" class="manual_img">
+	</li><br>
+	<li>
+		<div>The color key and zoom controls for SVG graph are located on the top of the structure graph.There are hotkeys available for the zoom controls ("+" and "-").</div>
+		<img src="images/user_manual/svg.png" alt="svg" class="manual_img">
+	</li><br>
+	<li>
+		<div><b>Advanced functions</b></div>
+		<ul>
+			<li>
+				<div><b>Motif search:</b> Search of the nucleotide sequence can be done using the search box within the "Nucleotide Information". Regular expression can be used to search for the motif. A minimum of 3 characters is required. If multiple results are returned, you can use the "Next" and "Previous" buttons to navigate the results. The result motif will be highlighted in the nucleotide sequence, structure DBN file, and structure graph.</div>
+				<img src="images/user_manual/motif_search.png" alt="motif_search" class="manual_img">
+			</li><br>
+			<li>
+				<div><b>Show 2D structure of selected bases:</b> When the structure graph is complex, you can select sections of the large structure to then view the sub-structure. To select the sub-structure, you can (1) use mouse to select (drag) bases in the nucleotide sequence; (2) hold "Shift" and click bases in the structure DBN file; or (3) hold "Shift" and click bases in the structure graph.</div>
+				<div><b>Notice:</b> You must select the complete paired bases to show the sub-structure.</div>
+				<img src="images/user_manual/substr1.png" alt="substr1" class="manual_img">
+				<img src="images/user_manual/substr2.png" alt="substr2" class="manual_img">
+				<img src="images/user_manual/substr3.png" alt="substr3" class="manual_img">
+				<div>Click "Show 2D structure of selected bases", to view your sub-structure.</div>
+				<img src="images/user_manual/substr.png" alt="substr" class="manual_img">						
+			</li><br>			
+		</ul>
+	</li>
+</ul>
+	
+<h3 id="result_links">3. Other result links</h3>
+<ul>
+	<li>
+		<div>On the result page, you can find other useful links. Data can be downloaded by clicking on the corresponding link.</div>
+		<img src="images/user_manual/other_link.png" alt="other_link" class="manual_img">
+	</li><br>
+</ul>
+
+<h3 id="retrive">4. Retrieve project</h3>
+<div>To retrieve the results of your previous project, click the "Retrieve" tab on the top navigation bar. Enter your User ID and Access code. The data will be stored and available for one week.</div>
+<img src="images/user_manual/retrieve.png" alt="retrieve" class="manual_img">
+</div>
+<br>

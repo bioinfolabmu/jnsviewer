@@ -1,0 +1,6 @@
+sequence	TAIR10	5'-UTR	1	10	.	+	.	5-prime-UTR
+sequence	TAIR10	CDS	11	30	.	+	.	Coding Region
+sequence	TAIR10	Intron	31	45	.	+	.	Intron Region
+sequence	TAIR10	CDS	46	64	.	+	.	Coding Region
+sequence	TAIR10	3'-UTR	65	74	.	+	.	3-prime-UTR
+sequence	TAIR10	Poly A	75	80	.	+	.	Poly A Site
